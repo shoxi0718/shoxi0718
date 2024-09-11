@@ -1,0 +1,21 @@
+import os
+os.system("cls")
+
+lst = ['ana ', 'abc', 'bad', 'bola', 'cat', 'chirs', 'sdfsd', 'dagfa', 'acjd']
+def filter_by_start(lst, soz):
+# startswith()  agar satr belgilangan qiymatdan boshlansa, 
+# True qiymatini qaytaradi, aks holda False. a  dan boshlangan bulsa truga utb uni oladi. bulmasa olmaydi 
+    return [i for i in lst if i.startswith(soz)]
+#filtr_by_start bu yerda 2 ta qiymat oladi brinchisi list yani lstdan kelayotgan 
+#har bir elementni va berilgan harfga yoki songa tekshiradi 
+a = filter_by_start(lst, 'a')
+b = filter_by_start(lst, 'b')
+c = filter_by_start(lst, 'c')
+print("List:")
+print(lst)
+print("a bn boshlangan elementlar:")
+print(a)
+print("b bn boshlangan elementlar:")
+print(b)
+print("c bn boshlangan elementlar:")
+print(c)
