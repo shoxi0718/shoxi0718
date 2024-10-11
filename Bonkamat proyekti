@@ -1,0 +1,326 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+system("cls");
+int til;
+int plastikParol = 12345;
+int amaliyotEnd;
+int plastikTel = 998990169791;
+int hisob = 1000000;
+
+```
+printf("Karta kiritildi, \\tThe card is Entered.\\n\\n");
+printf("Bankomat tizimiga xush kelibsiz,\\tWelcome to the Cashpoint.\\n\\n");
+
+```
+
+boshTilga:
+printf("Marhamat tilni kiriting.\tPlease enter the language.\n\n");
+printf("Uzbekch[1]. \t\tEnglish[2].\n\n");
+scanf("%d", &til);
+
+```
+if (til == 1)
+{
+    int parolSon1 = 0;
+    int parolSorash1;
+    printf("Iltimos Parolni kiriting.\\n\\n");
+qaytaParolSorash:
+    scanf("%d", &parolSorash1);
+
+    if (parolSorash1 != plastikParol && parolSon1 < 3)
+    {
+        printf("Iltimos Parolni tekshirib qaytadan kiriting\\n\\n");
+        parolSon1++;
+        goto qaytaParolSorash;
+    }
+    if (parolSon1 > 2 && parolSorash1 != plastikParol)
+    {
+        printf("\\nXafvsizlik maqsadida kartangiz bizda qoladi. Xayr Salomat bo'ling.\\n\\n");
+    }
+    if (parolSorash1 == plastikParol && til == 1)
+    {
+        parolSon1++;
+    // Bosh Menyu
+    boshMenyu:
+        printf("\\nSherov Ortiqbel, Xush kelibsiz.\\n\\n");
+
+        printf("Asosiy Menyu.\\n\\n");
+        printf("1.Hisobni tekshirish[1].\\t2.Parolni o'zgartirish[2].\\n\\n");
+        printf("3.Sms xabarni boshqa raqamga ulash[3].\\t4.Pul yechib olish[4].\\n\\n");
+        int operatsiyaniTanlash;
+        scanf("%d", &operatsiyaniTanlash);
+        switch (operatsiyaniTanlash)
+        {
+        case 1:
+            printf("Sizning hisobingizda %d  so'm mavjud\\n\\n", hisob);
+            int qaytishSorov;
+        QaytishSorovi1:
+            printf("Bosh Menyuga o'tish uchun 1 ni bosing. \\tDasturni tugatish uchun 0 ni bosing.\\n\\n");
+            scanf("%d", &qaytishSorov);
+            if (qaytishSorov == 1)
+            {
+                goto boshMenyu;
+            }
+            else if (qaytishSorov == 0)
+            {
+                break;
+            }
+            else
+            {
+                printf("\\nIltimos tartib raqamni tekshirib qaytadan kiriting.\\n\\n");
+                goto QaytishSorovi1;
+            }
+        case 2:
+        OzgartirishTasdiq:
+            printf("\\nParolnni o'zgartirish uchun avvalgi parolni kiriting.\\n");
+            int parolTasdiqlash;
+            scanf("%d", &parolTasdiqlash);
+            if (parolTasdiqlash == plastikParol)
+            {
+                printf("\\nKiritmoqchi bo'lgan parolingizni kiriting.\\n\\n");
+                int newParol;
+                scanf("%d", &newParol);
+                plastikParol = newParol;
+                printf("\\nSizning kiritgan yangi parol %d.\\n\\n", plastikParol);
+                int qaytishSorov2;
+            QaytishSorovi2:
+                printf("Bosh Menyuga o'tish uchun 1 ni bosing. \\tDasturni tugatish uchun 0 ni bosing.\\n\\n");
+                scanf("%d", &qaytishSorov2);
+                if (qaytishSorov2 == 1)
+                {
+                    goto boshMenyu;
+                }
+                else if (qaytishSorov2 == 0)
+                {
+                    break;
+                }
+                else
+                {
+                    printf("\\nIltimos tartib raqamni tekshirib qaytadan kiriting.\\n\\n");
+                    goto QaytishSorovi2;
+                }
+            }
+            else
+            {
+                printf("\\n\\nIltimos tekshirib qaytadan kiriting.\\n\\n");
+                goto OzgartirishTasdiq;
+            }
+        case 3:
+            printf("\\n\\nSiznig sms xabarnomangiz ulangan nomer: +998%d \\n\\n", plastikTel);
+            int newPhoneNumber;
+            printf("\\nYangi Telefon raqamni kiriting: +998");
+            scanf("%d", &newPhoneNumber);
+            plastikTel = newPhoneNumber;
+            printf("\\nSms xabarnoma +998%d ga ulandi\\n\\n", plastikTel);
+            int qaytishSorov2;
+        QaytishSorovi3:
+            printf("Bosh Menyuga o'tish uchun 1 ni bosing. \\tDasturni tugatish uchun 0 ni bosing.\\n\\n");
+            scanf("%d", &qaytishSorov2);
+            if (qaytishSorov2 == 1)
+            {
+                goto boshMenyu;
+            }
+            else if (qaytishSorov2 == 0)
+            {
+                break;
+            }
+            else
+            {
+                printf("\\nIltimos tartib raqamni tekshirib qaytadan kiriting.\\n\\n");
+                goto QaytishSorovi3;
+            }
+        case 4:
+        MablagKam1:
+            printf("\\nSiz yechib olmoqchi bo'lgan Summani kiriting: ");
+            int mablag;
+            scanf("%d", &mablag);
+
+            if (hisob < mablag)
+            {
+                printf("\\nHisobingizdagi mablag' yetarli emas. Iltimos hisobingizdagi pulni tekshiring.\\n\\n ");
+                goto MablagKam1;
+            }
+            else
+            {
+                hisob = hisob - mablag;
+                printf("Sizning hisobingizda %d  so'm mavjud\\n\\n", hisob);
+                int qaytishSorov4;
+            QaytishSorovi5:
+                printf("Bosh Menyuga o'tish uchun 1 ni bosing. \\tDasturni tugatish uchun 0 ni bosing.\\n\\n");
+                scanf("%d", &qaytishSorov4);
+                if (qaytishSorov4 == 1)
+                {
+                    goto boshMenyu;
+                }
+                else if (qaytishSorov4 == 0)
+                {
+                    break;
+                }
+                else
+                {
+                    printf("\\nIltimos tartib raqamni tekshirib qaytadan kiriting.\\n\\n");
+                    goto QaytishSorovi5;
+                }
+            }
+        }
+    }
+}
+else if (til == 2)
+{
+    int parolSon1 = 0;
+    int parolSorash1;
+    printf("Please Enter the password.\\n\\n");
+qaytaParolSorash2:
+    scanf("%d", &parolSorash1);
+
+    if (parolSorash1 != plastikParol && parolSon1 < 3)
+    {
+        printf("Wrong password Please cheack the password and enter the valid password!.\\n\\n");
+        parolSon1++;
+        goto qaytaParolSorash2;
+    }
+    if (parolSon1 > 2 && parolSorash1 != plastikParol)
+    {
+        printf("\\nWrong password The card will be eliminated.\\n\\n");
+    }
+    if (parolSorash1 == plastikParol && til == 2)
+    {
+        parolSon1++;
+    // Bosh Menyu
+    boshMenyu2:
+        printf("\\nAndrew Tate Welcome to the cash point.\\n\\n");
+
+        printf("Main Menyu.\\n\\n");
+        printf("1.Check the balanse[1].\\t2.Change the password[2].\\n\\n");
+        printf("3.Changing the click phone number[3]. \\t4.Withrdaw Money[4].\\n\\n");
+        int operatsiyaniTanlash;
+        scanf("%d", &operatsiyaniTanlash);
+        switch (operatsiyaniTanlash)
+        {
+        case 1:
+            printf("Your balanse is %d$\\n\\n", hisob);
+            int qaytishSorov;
+        QaytishSoror:
+            printf("To Return to the main menyu enter 1. \\tEnd the programm enter 0.\\n\\n");
+            scanf("%d", &qaytishSorov);
+            if (qaytishSorov == 1)
+            {
+                goto boshMenyu2;
+            }
+            else if (qaytishSorov == 0)
+            {
+                break;
+            }
+            else
+            {
+                printf("\\nPlease enter the valid number to go.\\n\\n");
+                goto QaytishSoror;
+            }
+        case 2:
+        OzgartirishTasdiq2:
+            printf("\\nTo enter the new password Enter the previous password.\\n");
+            int parolTasdiqlash;
+            scanf("%d", &parolTasdiqlash);
+            if (parolTasdiqlash == plastikParol)
+            {
+                printf("\\nEnter the new password.\\n\\n");
+                int newParol;
+                scanf("%d", &newParol);
+                plastikParol = newParol;
+                printf("\\nThe new entered password is %d.\\n\\n", plastikParol);
+                int qaytishSorov2;
+            QaytishSoror2:
+                printf("To Return to the main menyu enter 1. \\tEnd the programm enter 0.\\n\\n");
+                scanf("%d", &qaytishSorov2);
+                if (qaytishSorov2 == 1)
+                {
+                    goto boshMenyu2;
+                }
+                else if (qaytishSorov2 == 0)
+                {
+                    break;
+                }
+                else
+                {
+                    printf("\\nPlease enter the valid number to go.\\n\\n");
+                    goto QaytishSoror2;
+                }
+            }
+            else
+            {
+                printf("\\n\\nPlease cheack and enter again.\\n\\n");
+                goto OzgartirishTasdiq2;
+            }
+        case 3:
+            printf("\\n\\nYour new click number is: +998%d \\n\\n", plastikTel);
+            int newPhoneNumber;
+            printf("\\nEnter the new number: +998");
+            scanf("%d", &newPhoneNumber);
+            plastikTel = newPhoneNumber;
+            printf("\\nYour new number +998%d ga ulandi\\n\\n", plastikTel);
+            int qaytishSorov2;
+        QaytishSoror3:
+            printf("To Return to the main menyu enter 1. \\tEnd the programm enter 0.\\n\\n");
+            scanf("%d", &qaytishSorov2);
+            if (qaytishSorov2 == 1)
+            {
+                goto boshMenyu2;
+            }
+            else if (qaytishSorov2 == 0)
+            {
+                break;
+            }
+            else
+            {
+                printf("\\n\\nPlease cheack and enter again.\\n\\n");
+                goto QaytishSoror3;
+            }
+        case 4:
+        MablagKam:
+            printf("\\nEnter the amount of money: ");
+            int mablag;
+            scanf("%d", &mablag);
+
+            if (hisob < mablag)
+            {
+                printf("\\nYour balanse is low to withdrawl. Please cheack the balanse\\n\\n ");
+                goto MablagKam;
+            }
+            else
+            {
+                hisob = hisob - mablag;
+                printf("Your balanse not is %d$ and thank you\\n\\n", hisob);
+                int qaytishSorov4;
+            QaytishSoror4:
+                printf("To Return to the main menyu enter 1. \\tEnd the programm enter 0.\\n\\n");
+                scanf("%d", &qaytishSorov4);
+                if (qaytishSorov4 == 1)
+                {
+                    goto boshMenyu2;
+                }
+                else if (qaytishSorov4 == 0)
+                {
+                    break;
+                }
+                else
+                {
+                    printf("\\n\\nPlease cheack and enter again.\\n\\n");
+                    goto QaytishSoror4;
+                }
+            }
+        }
+    }
+}
+
+else{
+    printf("Bizda Tanlangan til mavjud emas. Sorry");
+}
+
+return 0;
+
+```
+
+}
